@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Confession</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        .blinking {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .small-text {
+            font-size: 0.75em;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page1">
+        <h1>HI! THANKS FOR VISITING... I REALLY WANT U TO PLZ ANS VERY CAREFULLY... THIS IS MY FIRST TIME LIKE THIS SO LETS KEEP IT SERIOUS😑😂</h1>
+        <p class="blinking">PRESS ENTER TO PROCEED</p>
+        <p class="small-text">I am using platform like this cause i dont have power to look in ur eyes and ask u this dumbo stuff so ya plz understand😌</p>
+    </div>
+
+    <div id="page2" style="display:none;">
+        <h1>1st que do u have any bf or crush something?</h1>
+        <button onclick="goToPage('page3')">Yes</button>
+        <button onclick="goToPage('page4')">Naaaa</button>
+    </div>
+
+    <div id="page3" style="display:none;">
+        <h1>IS THAT CRUSH OR BF WHATEVER IS IT, IN UR CLASS ONLY?🙄😶</h1>
+        <button onclick="goToPage('page5')">Yes</button>
+        <button onclick="goToPage('page6')">No</button>
+    </div>
+
+    <div id="page4" style="display:none;">
+        <h1>KOE NA TERE KO BHE MEEL JAYEGA (HUSNA KA PARA) BELIEVE IN GOD :)🥱😁💪</h1>
+    </div>
+
+    <div id="page5" style="display:none;">
+        <h1>Sun agar wo me hu to ek baat kan khol ke samjh le mere sath tere ko bohot prob hoga kyu ke me ek no. ka dumb, gadha or stupid human hu realllllly ha fir bhe tu ok he than its ok.</h1>
+        <button onclick="goToPage('page8')">Proceed</button>
+        <button onclick="goToPage('page7')">Tu nahe he</button>
+    </div>
+
+    <div id="page6" style="display:none; background-color:white; height:100vh;">
+        <h1>ok😇😋</h1>
+    </div>
+
+    <div id="page7" style="display:none; background-color:yellow; height:100vh;">
+        <h1>ok😇😋</h1>
+    </div>
+
+    <div id="page8" style="display:none;">
+        <h1>Bhai sun let me come to conclusion. I wanted to say this to u from last 2 weeks but i dont have experience or expertise on this dumbo harkat so i am using the simplest and non awkward stuff to say my feeling and stuff.</h1>
+        <p class="blinking">Press Enter</p>
+    </div>
+
+    <div id="page9" style="display:none;">
+        <h1>OK LISTEN🙄, TO it has been 2-3 months since i started to have feeling for u..😷<br><br>
+        mene kafeeeeeeeeeeeeeee jada try keya ke me tumse baat karu but kabe kar he nahe paya<br><br>
+        or jab keya bhe to...(darawaneeeeee) yar me pata nahe kya ye bola i mean really yar sorry about that and i know that fruity wala event,bhauuuu kya he dumb hu me mene ese he tere ko fruity pakda de, i mean really yar i am dumb.</h1>
+        <p class="blinking">Press Enter</p>
+    </div>
+
+    <div id="page10" style="display:none;">
+        <h1>AFROZ I am truly grateful ke mene external nahe leya or me ess school me padha kyu ke atleast mere ess decision ne ekk kam to sahe keya ke me tumse meel gaya.<br><br>
+        pata he last 2 months se me pure bheeed me etne girls ke beech me sirf tumhe he dekh pa ra tha🐻 matlab koe koe or ladke dekh he nahe re the tere alawa samjh rahe hhe bhai kya he cinematic situation ban raha tha damnnn or<br>
+        me jab bhe tumhe dekhta yar mera awaz he band hojata😵,<br>
+        yar i reallly never got guts to talk to u kyu ke dar lagta tha ke agar kuch bool deya or situation sahe nahe hua to me to gaya😶.<br><br>
+        but still its up to u to decide ke still a girl with strong and smart personality like u reallly want a dumbo like me who cant even talk to her crush😒😭</h1>
+        <p class="blinking">Press Enter</p>
+    </div>
+
+    <div id="page11" style="display:none; background-color:black; color:white;">
+        <h1>BAS yar etna he ata he mere ko, i am strongly💪 week in this chatting and talking stuff bas etna he ha ke u r my crush i really want u to be my girl.<br><br>
+        or nahe bhe he to chalega trust me i am good with imotional controll stuff see ya,<br><br>
+        and lets try to not make it awkward plz do tell me weather its yes or no ok?!!</h1>
+    </div>
+
+    <div id="page12" style="display:none; background-color:black; color:white;">
+        <h1>ha koe bhe agar spell mistake hue ho to ignore kardena. byyyyyyy😋😊</h1>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                if (document.getElementById('page1').style.display !== "none") {
+                    goToPage('page2');
+                } else if (document.getElementById('page8').style.display !== "none") {
+                    goToPage('page9');
+                } else if (document.getElementById('page9').style.display !== "none") {
+                    goToPage('page10');
+                } else if (document.getElementById('page10').style.display !== "none") {
+                    goToPage('page11');
+                } else if (document.getElementById('page11').style.display !== "none") {
+                    goToPage('page12');
+                }
+            }
+        });
+
+        function goToPage(page) {
+            let pages = document.querySelectorAll('div');
+            pages.forEach(function(p) {
+                p.style.display = "none";
+            });
+            document.getElementById(page).style.display = "block";
+        }
+    </script>
+</body>
+</html>
